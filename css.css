@@ -1,7 +1,7 @@
 
 .game{
    background-color: #A4AC8C; 
-height: 50vh;
+height: 100vh;
 
 }
 .verde_amargo_escuro{
@@ -11,9 +11,16 @@ background-color: #4D523E;
 
 
 .cars{
-width: 100px;
-height: 100px;
-background-color: red;
+
+   width: 27px;
+   height: 76px; 
 border: 1px solid;
-border-radius: 6px;
+background-color: white;
+
+position: absolute;
+background-image: url(pista.png);
+background-repeat: no-repeat;
+top: 0;
+
 }
+
