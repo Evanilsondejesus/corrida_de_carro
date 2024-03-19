@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movimentos de div usando teclas</title>
+
+
+    <!--precionando as teclas de direção, controla os movimentos da div-->
+</head>
+
+
+<style>
+#myquadrado{
+width: 50px;
+height: 50px;
+background-color: rgb(29, 174, 231);
+position: absolute;
+border-radius: 10px;
+box-shadow: 1px 2px 3px rgb(205, 154, 255);
+left: 500px;
+top: 90vh;
+margin: auto;
+
+}
+
+.core{
+  width: 50px;
+  height: 50px;
+  background-color:rgb(172, 119, 224);
+  box-shadow: 1px 2px 3px rgb(149, 142, 155);
+  position: absolute;
+ border-radius: 10px;
+}
+
+
+#outro{ 
+left: 100px;
+top: 650px;
+
+}
+
+#outro2{ 
+left: 400px;
+top: 200px;
+
+} 
+
+
+#outro3{ 
+left: 200px;
+top: 450px;
+
+} 
+
+</style>
+
+
+<body id="meus elementos">
+
+  <div id="myquadrado"></div>  
+
+  <div id="outro" class="core"></div>  
+
+  <div id="outro2" class="core"></div>  
+
+  <div id="outro3" class="core"></div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+var px =0;
+var py =0;
+var meuquadrado = [];
+
+
+
+
+ 
+document.addEventListener('keydown', fnClick);
+const myquadrado =document.getElementById("myquadrado")
+
+const outro =document.getElementById("outro")
+
+var irmaos = myquadrado.parentNode.children;
+
+
+
+
+function fnClick() {
+
+var leftVermelho = parseInt(window.getComputedStyle(myquadrado).getPropertyValue('left')) 
+
+
+
+
+
+
+
+
+var obj = document.getElementById("myquadrado");
+var tecla =event.keyCode;
+ 
+
+switch (tecla) {
+  case 37:
+  px-=10;
+obj.style.left=px+"px";
+    break;
+
+
+    case 38:
+    py-=10;
+obj.style.top=py+"px";
+
+break;
+
+
+case 39:
+px+=10;
+obj.style.left=px+"px";
+break;
+
+
+
+case 40:
+py+=10;
+obj.style.top=py+"px";
+
+break;
+default:
+break;
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var anda =0
+function Anime(params) {
+
+
+var tempo = setInterval(() => { 
+var myquadradoTop = parseInt(window.getComputedStyle(myquadrado).getPropertyValue('top'))
+var myquadradoLeft = parseInt(window.getComputedStyle(myquadrado).getPropertyValue('left'))
+var myquadradoWidth = parseInt(window.getComputedStyle(myquadrado).getPropertyValue('width'))
+var myquadradoHeight = parseInt(window.getComputedStyle(myquadrado).getPropertyValue('height'))
+
+
+anda +=10
+outro.style.top=anda+"px";
+
+
+for (var i = 0; i < irmaos.length; i++) {
+var obstaculoTop = parseInt(window.getComputedStyle(irmaos[i]).getPropertyValue('top'))
+var obstaculoLeft = parseInt(window.getComputedStyle(irmaos[i]).getPropertyValue('left'))
+var obstaculoWidth = parseInt(window.getComputedStyle(irmaos[i]).getPropertyValue('width'))
+var obstaculoHeight = parseInt(window.getComputedStyle(irmaos[i]).getPropertyValue('height'))
+
+ 
+if(myquadrado  != irmaos[i]  && 
+myquadradoLeft + myquadradoWidth > obstaculoLeft &&
+ obstaculoLeft+obstaculoWidth>myquadradoLeft 
+
+  &&myquadradoTop + myquadradoHeight  > obstaculoTop
+  &&obstaculoTop + obstaculoHeight >myquadradoTop
+ 
+
+//&& 
+
+ 
+){
+irmaos[i].style.background = "red" 
+ clearInterval(tempo)
+
+setTimeout(() => {
+ Anime()
+}, 200);
+
+  }else if(myquadrado  != irmaos[i]){
+irmaos[i].style.background = "rgb(172, 119, 224)"
+
+
+
+  
+  
+  }
+
+
+
+
+}
+
+
+
+}, 1000);
+
+
+  
+}
+
+
+
+
+Anime()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

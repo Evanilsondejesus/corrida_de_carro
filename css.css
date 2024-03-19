@@ -1,0 +1,19 @@
+
+.game{
+   background-color: #A4AC8C; 
+height: 50vh;
+
+}
+.verde_amargo_escuro{
+background-color: #4D523E;
+
+}
+
+
+.cars{
+width: 100px;
+height: 100px;
+background-color: red;
+border: 1px solid;
+border-radius: 6px;
+}
