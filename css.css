@@ -1,6 +1,7 @@
 
 .game{
    background-color: #A4AC8C; 
+width: 100vw;
 height: 100vh;
 
 }
@@ -10,17 +11,26 @@ background-color: #4D523E;
 }
 
 
-.cars{
+.pavimento{
 
    width: 27px;
-   height: 76px; 
-border: 1px solid;
-background-color: white;
-
-position: absolute;
-background-image: url(pista.png);
+   height: 76px;  
+position: absolute; 
 background-repeat: no-repeat;
-top: 0;
+top: 1%;
+
+}
+ .pavimento img{
+width: 50px;
 
 }
 
+
+
+#meu_car{
+   position: relative;
+   top: 400px;
+   left: 39%;
+   width: 150px;
+   }
+   

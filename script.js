@@ -1,5 +1,7 @@
 const game = document.querySelector("#game");
 
+const info = document.querySelector("#info");
+
  
 
 
@@ -10,7 +12,7 @@ var corrida= 0;
   
 setInterval(() => { 
 
-    const cars = document.querySelectorAll(".cars")
+    const cars = document.querySelectorAll(".pavimento")
 
 
     //var irmaos = game.children;
@@ -18,6 +20,8 @@ setInterval(() => {
 
 
 for (let corrida = 0; corrida < cars.length; corrida++) {
+var car_tamanho = cars[corrida].style.left
+
 var car_top = parseInt(window.getComputedStyle(cars[corrida]).getPropertyValue('top'))
 var car_lef = parseInt(window.getComputedStyle(cars[corrida]).getPropertyValue('left'))
 
@@ -27,27 +31,34 @@ var car_lef = parseInt(window.getComputedStyle(cars[corrida]).getPropertyValue('
 
 
 
-   if(car_top > 900){
+ info.innerText = car_lef
+
+   if(car_top > 1000){
     console.log(car_lef)
 
 
     
    var novosObastaculos = document.createElement("div");
 
+novosObastaculos.innerHTML = `<img src="pista2.png" alt="">`
+   novosObastaculos.classList.add("pavimento")
 
-   novosObastaculos.classList.add("cars")
-
-if(car_lef == 318){
-console.log("sim estou muito aqui")
+if(car_lef){
 novosObastaculos.style.top = "-100px"
-
-}else{
-    novosObastaculos.style.top = "-100px"
-
-    novosObastaculos.style.left = "925px"
-
+novosObastaculos.style.left = car_lef +"px"
 
 }
+
+
+
+
+// else{
+//     novosObastaculos.style.top = "-100px"
+
+//     novosObastaculos.style.left = "925px"
+
+
+// }
 
 
 
